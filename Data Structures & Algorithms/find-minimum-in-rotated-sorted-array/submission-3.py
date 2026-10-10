@@ -1,0 +1,16 @@
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        i = 0
+        j = len(nums) - 1
+        res = nums[0] # while array is not rotated
+
+        while i <= j:
+            m = (i + j) // 2
+            res = min(res, nums[m])
+
+            if nums[m] >= nums[j]:
+                i = m + 1
+            else:
+                j = m - 1
+
+        return res
